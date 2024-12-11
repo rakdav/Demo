@@ -34,11 +34,14 @@
             labelPhone = new Label();
             labelDir = new Label();
             labelName = new Label();
+            pictureBox1 = new PictureBox();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(pictureBox1);
             groupBox1.Controls.Add(labelProcent);
             groupBox1.Controls.Add(labelRaiting);
             groupBox1.Controls.Add(labelPhone);
@@ -53,7 +56,7 @@
             // labelProcent
             // 
             labelProcent.AutoSize = true;
-            labelProcent.Location = new Point(712, 25);
+            labelProcent.Location = new Point(670, 46);
             labelProcent.Name = "labelProcent";
             labelProcent.Size = new Size(52, 21);
             labelProcent.TabIndex = 4;
@@ -95,6 +98,17 @@
             labelName.TabIndex = 0;
             labelName.Text = "label1";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.delete;
+            pictureBox1.Location = new Point(730, 19);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(25, 25);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 5;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // PartnerControl
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
@@ -106,6 +120,7 @@
             Size = new Size(782, 110);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -117,5 +132,6 @@
         private Label labelPhone;
         private Label labelDir;
         private Label labelName;
+        private PictureBox pictureBox1;
     }
 }

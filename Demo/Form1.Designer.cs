@@ -28,7 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             panelPartners = new Panel();
+            pictureBoxLogo = new PictureBox();
+            buttonAdd = new Button();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxLogo).BeginInit();
             SuspendLayout();
             // 
             // panelPartners
@@ -39,19 +43,45 @@
             panelPartners.Size = new Size(774, 350);
             panelPartners.TabIndex = 0;
             // 
+            // pictureBoxLogo
+            // 
+            pictureBoxLogo.Image = Properties.Resources.Мастер_пол;
+            pictureBoxLogo.Location = new Point(801, 7);
+            pictureBoxLogo.Name = "pictureBoxLogo";
+            pictureBoxLogo.Size = new Size(100, 100);
+            pictureBoxLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxLogo.TabIndex = 1;
+            pictureBoxLogo.TabStop = false;
+            // 
+            // buttonAdd
+            // 
+            buttonAdd.Location = new Point(801, 127);
+            buttonAdd.Name = "buttonAdd";
+            buttonAdd.Size = new Size(100, 38);
+            buttonAdd.TabIndex = 2;
+            buttonAdd.Text = "Добавить";
+            buttonAdd.UseVisualStyleBackColor = true;
+            buttonAdd.Click += buttonAdd_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(794, 461);
+            ClientSize = new Size(913, 367);
+            Controls.Add(buttonAdd);
+            Controls.Add(pictureBoxLogo);
             Controls.Add(panelPartners);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
-            Text = "Form1";
+            Text = "Партнеры";
+            ((System.ComponentModel.ISupportInitialize)pictureBoxLogo).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panelPartners;
+        private PictureBox pictureBoxLogo;
+        private Button buttonAdd;
     }
 }
