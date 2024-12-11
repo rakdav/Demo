@@ -9,22 +9,21 @@ namespace Demo
         public Form1()
         {
             InitializeComponent();
+            db = new MasterFloreDubininContext();
             UpdateForm();
         }
         public void UpdateForm()
         {
             panelPartners.Controls.Clear();
-            using (db = new MasterFloreDubininContext())
+
+            list = db.Partners.ToList();
+            int Y = 0;
+            for (int i = 0; i < list.Count; i++)
             {
-                list = db.Partners.ToList();
-                int Y = 0;
-                for (int i = 0; i < list.Count; i++)
-                {
-                    PartnerControl pc = new PartnerControl(list[i],this);
-                    pc.Top = Y;
-                    panelPartners.Controls.Add(pc);
-                    Y += pc.Height;
-                }
+               PartnerControl pc = new PartnerControl(list[i],this);
+               pc.Top = Y;
+               panelPartners.Controls.Add(pc);
+               Y += pc.Height;
             }
         }
 

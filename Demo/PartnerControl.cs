@@ -1,4 +1,5 @@
 ﻿using Demo.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,21 +21,19 @@ namespace Demo
         {
             InitializeComponent();
             form = _form;
-            using (db = new MasterFloreDubininContext())
-            {
-                partner = _partner;
-                labelName.Text = partner.Type + " | " + partner.NameCompany;
-                labelDir.Text = partner.Director;
-                labelPhone.Text = partner.Phone;
-                labelRaiting.Text = "Рейтинг:" + partner.Reiting;
-                int? sum = db.PartnerHistories.Where(p => p.NameCompany == partner.NameCompany).Sum(p => p.Count);
-                int procent = 0;
-                if (sum < 10000) procent = 0;
-                else if (sum >= 10000 && sum < 50000) procent = 5;
-                else if (sum >= 50000 && sum < 300000) procent = 10;
-                else if (sum > 300000) procent = 15;
-                labelProcent.Text = procent.ToString() + "%";
-            }
+            db = new MasterFloreDubininContext();
+            partner = _partner;
+            labelName.Text = partner.Type + " | " + partner.NameCompany;
+            labelDir.Text = partner.Director;
+            labelPhone.Text = partner.Phone;
+            labelRaiting.Text = "Рейтинг:" + partner.Reiting;
+            int? sum = db.PartnerHistories.Where(p => p.NameCompany == partner.NameCompany).Sum(p => p.Count);
+            int procent = 0;
+            if (sum < 10000) procent = 0;
+            else if (sum >= 10000 && sum < 50000) procent = 5;
+            else if (sum >= 50000 && sum < 300000) procent = 10;
+            else if (sum > 300000) procent = 15;
+            labelProcent.Text = procent.ToString() + "%";
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -43,21 +42,19 @@ namespace Demo
                 MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
-                using (db = new MasterFloreDubininContext())
+                try
                 {
-                    try
-                    {
-                        db.Remove(partner);
-                        db.SaveChanges();
-                        form.UpdateForm();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Невозможно удалить элемент {ex.Message}");
-                    }
+                    db.Remove(partner);
+                    db.SaveChanges();
+                    form.UpdateForm();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Невозможно удалить элемент {ex.Message}");
                 }
             }
         }
+
 
         private void PartnerControl_DoubleClick(object sender, EventArgs e)
         {
@@ -72,13 +69,16 @@ namespace Demo
                 partner.Inn = window.textBoxINN.Text;
                 partner.Reiting = (int)window.numericUpDownReiting.Value;
                 partner.Phone = window.textBoxPhone.Text;
-                using (db = new MasterFloreDubininContext())
-                {
-                    db.Partners.Update(partner);
-                    db.SaveChanges();
-                    form.UpdateForm();
-                }
+                db.Partners.Update(partner);
+                db.SaveChanges();
+                form.UpdateForm();
             }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            FormRealization window = new FormRealization(partner);
+            window.Show();
         }
     }
 }

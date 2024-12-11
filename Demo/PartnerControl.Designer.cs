@@ -34,7 +34,9 @@
             labelPhone = new Label();
             labelDir = new Label();
             labelName = new Label();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -51,7 +53,7 @@
             // labelProcent
             // 
             labelProcent.AutoSize = true;
-            labelProcent.Location = new Point(718, 51);
+            labelProcent.Location = new Point(702, 51);
             labelProcent.Name = "labelProcent";
             labelProcent.Size = new Size(52, 21);
             labelProcent.TabIndex = 4;
@@ -93,10 +95,22 @@
             labelName.TabIndex = 0;
             labelName.Text = "label1";
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.realiz;
+            pictureBox2.Location = new Point(577, 9);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(102, 87);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 6;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
+            // 
             // PartnerControl
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(pictureBox2);
             Controls.Add(labelProcent);
             Controls.Add(pictureBox1);
             Controls.Add(labelName);
@@ -109,6 +123,7 @@
             Size = new Size(782, 110);
             DoubleClick += PartnerControl_DoubleClick;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -120,5 +135,6 @@
         private Label labelDir;
         private Label labelName;
         private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
     }
 }

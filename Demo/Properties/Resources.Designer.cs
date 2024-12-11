@@ -73,6 +73,16 @@ namespace Demo.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap realiz {
+            get {
+                object obj = ResourceManager.GetObject("realiz", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Мастер_пол {
             get {
                 object obj = ResourceManager.GetObject("Мастер пол", resourceCulture);
