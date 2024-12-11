@@ -28,35 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            groupBox1 = new GroupBox();
+            pictureBox1 = new PictureBox();
             labelProcent = new Label();
             labelRaiting = new Label();
             labelPhone = new Label();
             labelDir = new Label();
             labelName = new Label();
-            pictureBox1 = new PictureBox();
-            groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // groupBox1
+            // pictureBox1
             // 
-            groupBox1.Controls.Add(pictureBox1);
-            groupBox1.Controls.Add(labelProcent);
-            groupBox1.Controls.Add(labelRaiting);
-            groupBox1.Controls.Add(labelPhone);
-            groupBox1.Controls.Add(labelDir);
-            groupBox1.Controls.Add(labelName);
-            groupBox1.Location = new Point(3, 5);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(770, 98);
-            groupBox1.TabIndex = 0;
-            groupBox1.TabStop = false;
+            pictureBox1.Image = Properties.Resources.delete;
+            pictureBox1.Location = new Point(745, 9);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(25, 25);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 5;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // labelProcent
             // 
             labelProcent.AutoSize = true;
-            labelProcent.Location = new Point(670, 46);
+            labelProcent.Location = new Point(718, 51);
             labelProcent.Name = "labelProcent";
             labelProcent.Size = new Size(52, 21);
             labelProcent.TabIndex = 4;
@@ -65,7 +60,7 @@
             // labelRaiting
             // 
             labelRaiting.AutoSize = true;
-            labelRaiting.Location = new Point(6, 67);
+            labelRaiting.Location = new Point(1, 75);
             labelRaiting.Name = "labelRaiting";
             labelRaiting.Size = new Size(52, 21);
             labelRaiting.TabIndex = 3;
@@ -74,7 +69,7 @@
             // labelPhone
             // 
             labelPhone.AutoSize = true;
-            labelPhone.Location = new Point(6, 46);
+            labelPhone.Location = new Point(3, 51);
             labelPhone.Name = "labelPhone";
             labelPhone.Size = new Size(52, 21);
             labelPhone.TabIndex = 2;
@@ -83,7 +78,7 @@
             // labelDir
             // 
             labelDir.AutoSize = true;
-            labelDir.Location = new Point(6, 25);
+            labelDir.Location = new Point(3, 28);
             labelDir.Name = "labelDir";
             labelDir.Size = new Size(52, 21);
             labelDir.TabIndex = 1;
@@ -92,41 +87,33 @@
             // labelName
             // 
             labelName.AutoSize = true;
-            labelName.Location = new Point(6, 0);
+            labelName.Location = new Point(3, 5);
             labelName.Name = "labelName";
             labelName.Size = new Size(52, 21);
             labelName.TabIndex = 0;
             labelName.Text = "label1";
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.delete;
-            pictureBox1.Location = new Point(730, 19);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(25, 25);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 5;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
-            // 
             // PartnerControl
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(groupBox1);
+            Controls.Add(labelProcent);
+            Controls.Add(pictureBox1);
+            Controls.Add(labelName);
+            Controls.Add(labelRaiting);
+            Controls.Add(labelDir);
+            Controls.Add(labelPhone);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Margin = new Padding(4);
             Name = "PartnerControl";
             Size = new Size(782, 110);
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            DoubleClick += PartnerControl_DoubleClick;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private GroupBox groupBox1;
         private Label labelProcent;
         private Label labelRaiting;
         private Label labelPhone;
